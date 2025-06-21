@@ -1,0 +1,10 @@
+/ {
+    behaviors {
+        hyper: mod_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp NO>;
+            mods = <(MOD_LCTL | MOD_LSFT | MOD_LALT | MOD_LGUI)>;
+        };
+    };
+};
