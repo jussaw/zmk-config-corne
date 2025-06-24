@@ -10,11 +10,6 @@
 #include <dt-bindings/zmk/mouse.h>
 
 / {
-        &mt {
-                tapping-term-ms = <150>; 
-                flavor = "tap-preferred";
-        };
-
         // TODO: determine whether I will use scroll and num lock
         // TODO: Figure out how to do hyper key
         // TODO: Add Simultaneous Opposing Cardinal Directions functionality on game layer
