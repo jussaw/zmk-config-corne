@@ -7,13 +7,16 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/mouse.h>
 
 / {
+        // TODO: determine whether I will use scroll and num lock
+        // TODO: Figure out how to do hyper key
+        // TODO: Add Simultaneous Opposing Cardinal Directions functionality on game layer
         keymap {
                 compatible = "zmk,keymap";
 
-                default_layer {
-/* Qwerty
+/* Qwerty 0
 * ,-----------------------------------------------------.  ,-----------------------------------------------------.
 * |  Tab   |    Q   |    W   |    E   |    R   |    T   |  |    Y   |    U   |    I   |    O   |    P   |  Del   |
 * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
@@ -24,15 +27,15 @@
 *                            |  Hyper | Lower  | Space  |  |  Bksp  | Upper  |        |
 *                            `--------------------------'  `--------------------------'
 */
+                default_layer {
                         bindings = <
    &kp TAB  &kp Q    &kp W    &kp E    &kp R    &kp T       &kp Y    &kp U    &kp I    &kp O    &kp P    &kp BSPC
-   &kp ESC  &kp A    &kp S    &kp D    &kp F    &kp G       &kp H    &kp J    &kp K    &kp L    &kp SEMI &kp SQT
+   &kp ESC  &mt LGUI A &mt LALT S    &mt LCTRL D    &mt LSHFT F    &kp G       &kp H    &mt RSHFT J    &mt RCTRL K    &mt RALT L    &mt RGUI SEMI &kp SQT
    &kp CAPS &kp Z    &kp X    &kp C    &kp V    &kp B       &kp N    &kp M    &kp COMMA &kp DOT &kp FSLH &kp ENTER
-                              &hyper   &mo 1    &kp SPACE   &kp BSPC &mo 2    &kp RALT
+                              &hyper    &mo 1    &kp SPACE   &kp BSPC &mo 2    &kp none
                         >;
                 };
-                lower_layer {
-/* Lower
+/* Lower 1
 * ,-----------------------------------------------------.  ,-----------------------------------------------------.
 * |  Tab   |    !   |    @   |    #   |    $   |    %   |  |    ^   |    &   |    *   |    (   |    )   |  Del   |
 * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
@@ -43,16 +46,16 @@
 *                            |  Hyper | Trans  | Space  |  |  Bksp  | Adjust |        |
 *                            `--------------------------'  `--------------------------'
 */
+                lower_layer {
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+   &kp TAB  &kp EXCL &kp AT   &kp HASH &kp DOLLAR &kp PERCENT &kp CARET &kp AMPERSAND &kp STAR &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp DEL
+   &kp ESC  &none    &none    &mkp MB2 &mkp mb1 &none       &kp GRAVE &mt RSHFT MINUS &mt RCTRL EQUAL &mt RALT LBKT &mt RGUI RBKT &kp BSLH
+   &kp CAPS &none    &none    &mkp MB4 &mkp mb5 &none       &kp TILDE &kp UNDERSCORE &kp PLUS &kp LBRC &kp RBRC &kp PIPE
+                              &hyper    &trans   &kp SPACE   &kp BSPC &mo 3    &none
                         >;
                 };
 
-                raise_layer {
-/* Upper
+/* Upper 2
 * ,-----------------------------------------------------.  ,-----------------------------------------------------.
 * |  Tab   |    1   |    2   |    3   |    4   |    5   |  |    6   |    7   |    8   |    9   |    0   |  Del   |
 * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
@@ -63,30 +66,37 @@
 *                            |  Hyper | Adjust | Space  |  |  Bksp  | Trans  |        |
 *                            `--------------------------'  `--------------------------'
 */
+                upper_layer {
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &kp TAB  &kp N1   &kp N2   &kp N3   &kp N4   &kp N5      &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &kp DEL
+   &kp F11  &mt LGUI F1 &mt LALT F2 &mt LCTRL F3 &mt LSHFT F4 &kp F5 &kp INS &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp BACKSLASH
+   &kp F12  &kp F6   &kp F7   &kp F8   &kp F9   &kp F10     &kp PSCRN &kp HOME &kp PG_UP &kp PAGE_DOWN &kp END &kp ENTER
+                              &hyper    &mo 3    &kp SPACE   &kp BSPC &trans   &none
                         >;
                 };
         };
-};
 
-/* Adjust
+/* Adjust 3
 * ,-----------------------------------------------------.  ,-----------------------------------------------------.
-* |  RESET |        |        |        |        |TG(GAME)|  |  Play  |  Prev  |  Next  |        |        |        |
+* |        |        |        |        |        |TG(GAME)|  |  Play  |  Prev  |  Next  |        |        |        |
 * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-* |DF(QWRT)|        |        | Mouse2 | Mouse1 |        |  |  Vol+  |Ms Left |Ms Down | Ms Up  |Ms Right|        |
+* |        |        |        | Mouse2 | Mouse1 |        |  |  Vol+  |Ms Left |Ms Down | Ms Up  |Ms Right|        |
 * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
 * |        |        |        | Mouse4 | Mouse5 |        |  |  Vol-  | MsWl L | MsWl D | MsWl U | MsWl R |        |
 * `--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------'
 *                            |  Hyper | Lower  |        |  |        | Upper  |        |
 *                            `--------------------------'  `--------------------------'
 */
-
-
-/* Game
+        adjust_layer {
+                bindings = <
+   &none    &none    &none    &none    &none    &tog 4      &kp C_PP &kp C_PREV &kp C_NEXT &none &none   &none
+   &none    &none    &none    &mkp MB2 &mkp mb1 &none       &kp C_VOL_UP &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &none
+   &none    &none    &none    &mkp MB4 &mkp mb5 &none       &kp C_VOL_DN &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UO &msc SCRL_RIGHT &none
+                              &hyper    &mo 1   &none       &none    &mo 2    &none
+                        >;
+        };
+        
+/* Game 4
 * ,-----------------------------------------------------.  ,-----------------------------------------------------.
 * |    T   |  Tab   |    Q   |    W   |    E   |    R   |  |    Y   |    U   |    I   |    O   |    P   |  Bksp  |
 * |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
@@ -97,3 +107,14 @@
 *                            |   Esc  |  Alt   | Space  |  |        |        |TG(GAME)|
 *                            `--------------------------'  `--------------------------'
 */
+        game_layer {
+                bindings = <
+   &kp T    &kp TAB  &kp Q    &kp W    &kp E    &kp R       &kp Y    &kp U    &kp I    &kp O    &kp P    &kp BSPC
+   &kp G    &kp LSHFT &kp A   &kp S    &kp S    &kp F       &kp H    &kp J    &kp K    &kp L    &kp SEMI &kp SQT
+   &kp B    &kp LCTRL &kp Z   &kp X    &kp C    &kp V       &kp N    &kp M    &kp COMMA &kp DOT &kp FSLH &kp ENTER
+                              &kp ESC  &kp LALT &kp SPACE   &trans   &none    &tog 4
+                        >;
+        };
+        
+};
+
