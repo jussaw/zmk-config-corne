@@ -6,5 +6,9 @@
             bindings = <&kp NO>;
             mods = <(MOD_LCTL | MOD_LSFT | MOD_LALT | MOD_LGUI)>;
         };
+        &mt {
+                tapping-term-ms = <150>; 
+                flavor = "tap-preferred";
+        };
     };
 };
