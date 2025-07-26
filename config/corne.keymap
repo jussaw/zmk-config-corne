@@ -75,7 +75,6 @@
                               &none    &mo 3    &kp SPACE   &kp BSPC &trans   &none
                         >;
                 };
-        };
 
 /* Adjust 3
 * ,-----------------------------------------------------.  ,-----------------------------------------------------.
@@ -95,7 +94,7 @@
    &bt BT_SEL 2 &bt BT_CLR &none    &mkp MB4 &mkp MB5 &none &kp C_VOL_DN &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &none
                               &none    &mo 1   &none       &none    &mo 2    &none
                         >;
-        };
+                };
         
 /* Game 4
 * ,-----------------------------------------------------.  ,-----------------------------------------------------.
@@ -115,6 +114,7 @@
    &kp B    &kp LCTRL &kp Z   &kp X    &kp C    &kp V       &kp N    &kp M    &kp COMMA &kp DOT &kp FSLH &kp ENTER
                               &kp ESC  &kp LALT &kp SPACE   &trans   &none    &tog 4
                         >;
+                };
         };
         
 };
