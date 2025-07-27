@@ -7,7 +7,6 @@
             mods = <(MOD_LCTL | MOD_LSFT | MOD_LALT | MOD_LGUI)>;
         };
         &mt {
-                hold-trigger-on-release
                 tapping-term-ms = <200>; 
                 quick-tap-ms = <0>;
                 require-prior-idle-ms = <125>;
