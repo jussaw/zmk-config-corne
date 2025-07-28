@@ -6,11 +6,22 @@
             bindings = <&kp NO>;
             mods = <(MOD_LCTL | MOD_LSFT | MOD_LALT | MOD_LGUI)>;
         };
+
         &mt {
-                tapping-term-ms = <200>; 
-                quick-tap-ms = <0>;
-                require-prior-idle-ms = <125>;
-                flavor = "tap-preferred";
+            flavor = "tap-preferred";
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <200>; 
+            quick-tap-ms = <0>;
+        };
+
+        hm: home_row_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <200>; 
+            quick-tap-ms = <0>;
+            bindings = <&kp>, <&kp>;
         };
     };
 };
