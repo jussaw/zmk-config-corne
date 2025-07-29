@@ -14,6 +14,21 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 #include <dt-bindings/zmk/pointing.h>
 
+// Custom Behaviors
+/ {
+    behaviors {      
+        hm: home_row_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <200>; 
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+};
+
 // TODO: determine whether I will use scroll and num lock
 // TODO: Add hyper key
 // TODO: Add Simultaneous Opposing Cardinal Directions functionality on game layer
