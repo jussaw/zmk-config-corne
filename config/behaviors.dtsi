@@ -9,9 +9,9 @@
 
         &mt {
             flavor = "tap-preferred";
-            require-prior-idle-ms = <125>;
+            require-prior-idle-ms = <200>;
             tapping-term-ms = <200>; 
-            quick-tap-ms = <0>;
+            quick-tap-ms = <150>;
         };
 
         hm: home_row_mod {
