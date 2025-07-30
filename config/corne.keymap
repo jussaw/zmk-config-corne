@@ -14,6 +14,13 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 #include <dt-bindings/zmk/pointing.h>
 
+// Layers
+#define QWERTY 0
+#define LOWER 1
+#define UPPER 2
+#define ADJUST 3
+#define GAME 4
+
 // Custom Behaviors
 / {
     behaviors {      
@@ -21,9 +28,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            require-prior-idle-ms = <125>;
             tapping-term-ms = <200>; 
             quick-tap-ms = <200>;
+            require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
         };
     };
@@ -32,110 +39,109 @@
 // TODO: determine whether I will use scroll and num lock
 // TODO: Add hyper key
 // TODO: Add Simultaneous Opposing Cardinal Directions functionality on game layer
-// TODO: Tidy up keymap
 / {
-        keymap {
-                compatible = "zmk,keymap";
+   keymap {
+      compatible = "zmk,keymap";
 
-/* Qwerty 0
-* ,-----------------------------------------------------.  ,-----------------------------------------------------.
-* |  Tab   |    Q   |    W   |    E   |    R   |    T   |  |    Y   |    U   |    I   |    O   |    P   |  Del   |
-* |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-* |  Esc   | A,LGUI | S,LALT | D,LCTL | F,LSFT |    G   |  |    H   | J,RSFT | K,RCTL | L,RALT | ;,RGUI |   ""   |
-* |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-* |  CAPS  |    Z   |    X   |    C   |    V   |    B   |  |    N   |    M   |    ,   |    .   |    /   | Enter  |
-* `--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------'
-*                            |  Hyper | Lower  | Space  |  |  Bksp  | Upper  |        |
-*                            `--------------------------'  `--------------------------'
+/* Qwerty
+* ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
+* |     Tab     |      Q      |      W      |      E      |      R      |      T      |  |      Y      |      U      |      I      |      O      |      P      |     Del     |
+* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
+* |     Esc     |   A,LGUI    |   S,LALT    |   D,LCTL    |   F,LSFT    |      G      |  |      H      |   J,RSFT    |   K,RCTL    |    ,RALT    |   ;,RGUI    |     ""      |
+* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
+* |    CAPS     |      Z      |     X       |      C      |      V      |      B      |  |      N      |      M      |      ,      |      .      |      /      |    Enter    |
+* `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
+*                                           |    Hyper    |    Lower    |    Space    |  |    Bksp     |    Upper    |             |
+*                                           `-----------------------------------------'  `-----------------------------------------'
 */
-                default_layer {
-                        bindings = <
-   &kp TAB  &kp Q    &kp W    &kp E    &kp R    &kp T       &kp Y    &kp U    &kp I    &kp O    &kp P    &kp DEL
-   &kp ESC  &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F &kp G &kp H &hm RSHFT J &hm RCTRL K &hm RALT L &hm RGUI SEMI &kp SQT
-   &kp CAPS &kp Z    &kp X    &kp C    &kp V    &kp B       &kp N    &kp M    &kp COMMA &kp DOT &kp FSLH &kp ENTER
-                              &none    &mo 1    &kp SPACE   &kp BSPC &mo 2    &none
+      default_layer {
+         bindings = <
+   &kp TAB       &kp Q         &kp W         &kp E          &kp R          &kp T          &kp Y         &kp U         &kp I         &kp O         &kp P         &kp DEL
+   &kp ESC       &hm LGUI A    &hm LALT S    &hm LCTRL D    &hm LSHFT F    &kp G          &kp H         &hm RSHFT J   &hm RCTRL K   &hm RALT L    &hm RGUI SEMI &kp SQT
+   &kp CAPS      &kp Z         &kp X         &kp C          &kp V          &kp B          &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp ENTER
+                                             &none          &mo LOWER      &kp SPACE      &kp BSPC      &mo UPPER     &none
                         >;
                 };
-/* Lower 1
-* ,-----------------------------------------------------.  ,-----------------------------------------------------.
-* |  Tab   |    !   |    @   |    #   |    $   |    %   |  |    ^   |    &   |    *   |    (   |    )   |  Del   |
-* |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-* |  Esc   |        |SCRL_LCK| Mouse2 | Mouse1 |NUM_LOCK|  |    `   | -,RSFT | =,RCTL | [,RALT | ],RGUI |   \    |
-* |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-* |  CAPS  |        |        | Mouse4 | Mouse5 |        |  |    ~   |    _   |    +   |    {   |    }   |   |    |
-* `--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------'
-*                            |  Hyper | Trans  | Space  |  |  Bksp  | Adjust |        |
-*                            `--------------------------'  `--------------------------'
+/* Lower
+* ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
+* |     Tab     |      !      |      @      |      #      |      $      |      %      |  |      ^      |      &      |      *      |      (      |      )      |     Del     |
+* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
+* |     Esc     |             |  SCRL_LCK   |   Mouse2    |   Mouse1    |  NUM_LOCK   |  |      `      |   -,RSFT    |   =,RCTL    |   [,RALT    |   ],RGUI    |      \      |
+* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
+* |    CAPS     |             |             |   Mouse4    |   Mouse5    |             |  |      ~      |      _      |      +      |      {      |      }      |      |      |
+* `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
+*                                           |    Hyper    |    Trans    |    Space    |  |    Bksp     |   Adjust    |             |
+*                                           `-----------------------------------------'  `-----------------------------------------'
 */
                 lower_layer {
                         bindings = <
-   &kp TAB  &kp EXCL &kp AT   &kp HASH &kp DOLLAR &kp PERCENT &kp CARET &kp AMPERSAND &kp STAR &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp DEL
-   &kp ESC  &none    &none    &mkp MB2 &mkp MB1 &none       &kp GRAVE &hm RSHFT MINUS &hm RCTRL EQUAL &hm RALT LBKT &hm RGUI RBKT &kp BSLH
-   &kp CAPS &none    &none    &mkp MB4 &mkp MB5 &none       &kp TILDE &kp UNDERSCORE &kp PLUS &kp LBRC &kp RBRC &kp PIPE
-                              &none    &trans   &kp SPACE   &kp BSPC &mo 3    &none
+   &kp TAB       &kp EXCL      &kp AT        &kp HASH       &kp DOLLAR     &kp PERCENT    &kp CARET     &kp AMPERS    &kp STAR      &kp LEFT_PAR  &kp RIGHT_PAR &kp DEL
+   &kp ESC       &none         &none         &mkp MB2       &mkp MB1       &none          &kp GRAVE     &hm RSHFT MINUS &hm RCTRL EQUAL &hm RALT LBKT &hm RGUI RBKT &kp BSLH
+   &kp CAPS      &none         &none         &mkp MB4       &mkp MB5       &none          &kp TILDE     &kp UNDER     &kp PLUS     &kp LBRC      &kp RBRC      &kp PIPE
+                                             &none          &trans         &kp SPACE      &kp BSPC      &mo ADJUST         &none
                         >;
                 };
 
-/* Upper 2
-* ,-----------------------------------------------------.  ,-----------------------------------------------------.
-* |  Tab   |    1   |    2   |    3   |    4   |    5   |  |    6   |    7   |    8   |    9   |    0   |  Del   |
-* |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-* |   F11  |F1,LGUI |F2,LALT |F3,LCTL |F4,LSFT |   F5   |  |  Ins   |  Left  |  Down  |   Up   | Right  |   \    |
-* +--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-* |   F12  |   F6   |   F7   |   F8   |   F9   |  F10   |  |PrntScrn|  Home  |Pg Down | Pg Up  |  End   | Enter  |
-* `--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------'
-*                            |  Hyper | Adjust | Space  |  |  Bksp  | Trans  |        |
-*                            `--------------------------'  `--------------------------'
+/* Upper
+* ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
+* |     Tab     |      1      |      2      |      3      |      4      |      5      |  |      6      |      7      |      8      |      9      |      0      |     Del     |
+* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
+* |     F11     |   F1,LGUI   |   F2,LALT   |   F3,LCTL   |   F4,LSFT   |     F5      |  |     Ins     |    Left     |    Down     |     Up      |    Right    |      \      |
+* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
+* |     F12     |     F6      |     F7      |     F8      |     F9      |     F10     |  |   PrntScrn  |    Home     |   Pg Down   |    Pg Up    |     End     |    Enter    |
+* `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
+*                                           |    Hyper    |   Adjust    |    Space    |  |    Bksp     |    Trans    |             |
+*                                           `-----------------------------------------'  `-----------------------------------------'
 */
                 upper_layer {
-                        bindings = <
-   &kp TAB  &kp N1   &kp N2   &kp N3   &kp N4   &kp N5      &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &kp DEL
-   &kp F11  &hm LGUI F1 &hm LALT F2 &hm LCTRL F3 &hm LSHFT F4 &kp F5 &kp INS &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp BSLH
-   &kp F12  &kp F6   &kp F7   &kp F8   &kp F9   &kp F10     &kp PSCRN &kp HOME &kp PG_UP &kp PAGE_DOWN &kp END &kp ENTER
-                              &none    &mo 3    &kp SPACE   &kp BSPC &trans   &none
+                        bindings = <9
+   &kp TAB       &kp N1        &kp N2        &kp N3         &kp N4         &kp N5         &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp DEL
+   &kp F11       &hm LGUI F1   &hm LALT F2   &hm LCTRL F3   &hm LSHFT F4   &kp F5         &kp INS       &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSLH
+   &kp F12       &kp F6        &kp F7        &kp F8         &kp F9         &kp F10        &kp PSCRN     &kp HOME      &kp PG_UP     &kp PAGE_DOWN &kp END       &kp ENTER
+                                             &none          &mo ADJUST     &kp SPACE      &kp BSPC      &trans        &none
                         >;
                 };
 
-/* Adjust 3
-* ,-----------------------------------------------------.  ,-----------------------------------------------------.
-* |  BT 0  |  BT 3  |        |        |        |TG(GAME)|  |  Play  |  Prev  |  Next  |        |        |        |
-* |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-* |  BT 1  |  BT 4  |        | Mouse2 | Mouse1 |        |  |  Vol+  |Ms Left |Ms Down | Ms Up  |Ms Right|        |
-* |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-* |  BT 2  | BT CLR |        | Mouse4 | Mouse5 |        |  |  Vol-  | MsWl L | MsWl D | MsWl U | MsWl R |        |
-* `--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------'
-*                            |  Hyper | Lower  |        |  |        | Upper  |        |
-*                            `--------------------------'  `--------------------------'
+/* Adjust 
+* ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
+* |     BT 0    |     BT 3    |             |             |             |  TG(GAME)   |  |    Play     |    Prev     |    Next     |             |             |             |
+* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
+* |     BT 1    |     BT 4    |             |   Mouse2    |   Mouse1    |             |  |    Vol+     |   Ms Left   |   Ms Down   |    Ms Up    |  Ms Right   |             |
+* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
+* |     BT 2    |   BT CLR    |             |   Mouse4    |   Mouse5    |             |  |    Vol-     |   MsWl L    |   MsWl D    |   MsWl U    |   MsWl R    |             |
+* `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
+*                                           |    Hyper    |    Lower    |             |  |             |    Upper    |             |
+*                                           `-----------------------------------------'  `-----------------------------------------'
 */
-        adjust_layer {
-                bindings = <
-   &bt BT_SEL 0 &bt BT_SEL 3 &none &none &none &tog 4 &kp C_PP &kp C_PREV &kp C_NEXT &none &none &none
-   &bt BT_SEL 1 &bt BT_SEL 4 &none    &mkp MB2 &mkp MB1 &none &kp C_VOL_UP &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &none
-   &bt BT_SEL 2 &bt BT_CLR &none    &mkp MB4 &mkp MB5 &none &kp C_VOL_DN &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &none
-                              &none    &trans   &none       &none    &trans   &none
+                adjust_layer {
+                        bindings = <
+   &bt BT_SEL 0  &bt BT_SEL 3  &none         &none          &none          &tog 4         &kp C_PP      &kp C_PREV    &kp C_NEXT    &none         &none         &none
+   &bt BT_SEL 1  &bt BT_SEL 4  &none         &mkp MB2       &mkp MB1       &none          &kp C_VOL_UP  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &none
+   &bt BT_SEL 2  &bt BT_CLR    &none         &mkp MB4       &mkp MB5       &none          &kp C_VOL_DN  &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &none
+                                             &none          &trans         &none          &none         &trans        &none
                         >;
                 };
         
-/* Game 4
-* ,-----------------------------------------------------.  ,-----------------------------------------------------.
-* |    T   |  Tab   |    Q   |    W   |    E   |    R   |  |    Y   |    U   |    I   |    O   |    P   |  Bksp  |
-* |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-* |    G   |  Shift |    A   |    S   |    D   |    F   |  |    H   |    J   |    K   |    L   |    ;   |   ""   |
-* |--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-* |    B   |  Ctrl  |    Z   |    X   |    C   |    V   |  |    N   |    M   |    ,   |    .   |    /   | Enter  |
-* `--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------'
-*                            |   Esc  |  Alt   | Space  |  |        |        |TG(GAME)|
-*                            `--------------------------'  `--------------------------'
+/* Game
+* ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
+* |      T      |     Tab     |      Q      |      W      |      E      |      R      |  |      Y      |      U      |      I      |      O      |      P      |    Bksp     |
+* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
+* |      G      |    Shift    |      A      |      S      |      D      |      F      |  |      H      |      J      |      K      |      L      |      ;      |     ""      |
+* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
+* |      B      |    Ctrl     |      Z      |      X      |      C      |      V      |  |      N      |      M      |      ,      |      .      |      /      |    Enter    |
+* `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
+*                                           |     Esc     |     Alt     |    Space    |  |             |             |  TG(GAME)   |
+*                                           `-----------------------------------------'  `-----------------------------------------'
 */
-        game_layer {
-                bindings = <
-   &kp T    &kp TAB  &kp Q    &kp W    &kp E    &kp R       &kp Y    &kp U    &kp I    &kp O    &kp P    &kp BSPC
-   &kp G    &kp LSHFT &kp A   &kp S    &kp D    &kp F       &kp H    &kp J    &kp K    &kp L    &kp SEMI &kp SQT
-   &kp B    &kp LCTRL &kp Z   &kp X    &kp C    &kp V       &kp N    &kp M    &kp COMMA &kp DOT &kp FSLH &kp ENTER
-                              &kp ESC  &kp LALT &kp SPACE   &trans   &none    &tog 4
+                game_layer {
+                        bindings = <
+   &kp T         &kp TAB       &kp Q         &kp W          &kp E          &kp R          &kp Y         &kp U         &kp I         &kp O         &kp P         &kp BSPC
+   &kp G         &kp LSHFT     &kp A         &kp S          &kp D          &kp F          &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
+   &kp B         &kp LCTRL     &kp Z         &kp X          &kp C          &kp V          &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp ENTER
+                                             &kp ESC        &kp LALT       &kp SPACE      &trans        &none         &tog 4
                         >;
                 };
-        };
+   };
         
 };
 
