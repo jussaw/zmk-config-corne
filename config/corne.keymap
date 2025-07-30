@@ -62,6 +62,7 @@
                                              &none          &mo LOWER      &kp SPACE      &kp BSPC      &mo UPPER     &none
                         >;
                 };
+
 /* Lower
 * ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
 * |     Tab     |      !      |      @      |      #      |      $      |      %      |  |      ^      |      &      |      *      |      (      |      )      |     Del     |
@@ -75,9 +76,9 @@
 */
                 lower_layer {
                         bindings = <
-   &kp TAB       &kp EXCL      &kp AT        &kp HASH       &kp DOLLAR     &kp PERCENT    &kp CARET     &kp AMPERS    &kp STAR      &kp LEFT_PAR  &kp RIGHT_PAR &kp DEL
+   &kp TAB       &kp EXCL      &kp AT        &kp HASH       &kp DOLLAR     &kp PERCENT    &kp CARET     &kp AMPS      &kp STAR      &kp LPAR      &kp RPAR      &kp DEL
    &kp ESC       &none         &none         &mkp MB2       &mkp MB1       &none          &kp GRAVE     &hm RSHFT MINUS &hm RCTRL EQUAL &hm RALT LBKT &hm RGUI RBKT &kp BSLH
-   &kp CAPS      &none         &none         &mkp MB4       &mkp MB5       &none          &kp TILDE     &kp UNDER     &kp PLUS     &kp LBRC      &kp RBRC      &kp PIPE
+   &kp CAPS      &none         &none         &mkp MB4       &mkp MB5       &none          &kp TILDE     &kp UNDER     &kp PLUS     &kp LBRC       &kp RBRC      &kp PIPE
                                              &none          &trans         &kp SPACE      &kp BSPC      &mo ADJUST         &none
                         >;
                 };
@@ -93,6 +94,7 @@
 *                                           |    Hyper    |   Adjust    |    Space    |  |    Bksp     |    Trans    |             |
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
+
                 upper_layer {
                         bindings = <
    &kp TAB       &kp N1        &kp N2        &kp N3         &kp N4         &kp N5         &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp DEL
@@ -142,6 +144,5 @@
                         >;
                 };
    };
-        
 };
 
