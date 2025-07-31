@@ -57,6 +57,7 @@
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
       windows_default_layer {
+         label = "DEFAULT";
          bindings = <
    &kp TAB       &kp Q         &kp W         &kp E          &kp R          &kp T          &kp Y         &kp U         &kp I         &kp O         &kp P         &kp DEL
    &kp ESC       &hm LGUI A    &hm LALT S    &hm LCTRL D    &hm LSHFT F    &kp G          &kp H         &hm RSHFT J   &hm RCTRL K   &hm RALT L    &hm RGUI SEMI &kp SQT
@@ -77,6 +78,7 @@
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
       mac_layer {
+         label = "MAC";
          bindings = <
    &kp TAB       &kp Q         &kp W         &kp E          &kp R          &kp T          &kp Y         &kp U         &kp I         &kp O         &kp P         &kp DEL
    &kp ESC       &hm LGUI A    &hm LALT S    &hm LGUI D     &hm LSHFT F    &kp G          &kp H         &hm RSHFT J   &hm RCTRL K   &hm RALT L    &hm RGUI SEMI &kp SQT
@@ -96,8 +98,9 @@
 *                                           |    Hyper    |    Trans    |    Space    |  |    Bksp     |   Adjust    |             |
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
-                lower_layer {
-                        bindings = <
+      lower_layer {
+         label = "LOWER";
+         bindings = <
    &kp TAB       &kp EXCL      &kp AT        &kp HASH       &kp DOLLAR     &kp PERCENT    &kp CARET     &kp AMPS      &kp STAR      &kp LPAR      &kp RPAR      &kp DEL
    &kp ESC       &none         &none         &mkp MB2       &mkp MB1       &none          &kp GRAVE     &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT      &kp BSLH
    &kp CAPS      &none         &none         &mkp MB4       &mkp MB5       &none          &kp TILDE     &kp UNDER     &kp PLUS      &kp LBRC      &kp RBRC      &kp PIPE
@@ -117,8 +120,9 @@
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
 
-                upper_layer {
-                        bindings = <
+      upper_layer {
+         label = "UPPER";
+         bindings = <
    &kp TAB       &kp N1        &kp N2        &kp N3         &kp N4         &kp N5         &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp DEL
    &kp F11       &kp F1        &kp F2        &kp F3         &kp F4         &kp F5         &kp INS       &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSLH
    &kp F12       &kp F6        &kp F7        &kp F8         &kp F9         &kp F10        &kp PSCRN     &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp ENTER
@@ -137,8 +141,9 @@
 *                                           |    Hyper    |    Trans    |             |  |             |    Trans    |             |
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
-                adjust_layer {
-                        bindings = <
+      adjust_layer {
+         label = "ADJUST";
+         bindings = <
    &none         &none         &none         &none          &none          &none          &kp C_PP      &kp C_PREV    &kp C_NEXT    &none         &none         &mo SETTINGS
    &none         &none         &none         &mkp MB2       &mkp MB1       &none          &kp C_VOL_UP  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &none
    &none         &none         &none         &mkp MB4       &mkp MB5       &none          &kp C_VOL_DN  &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &none
@@ -157,8 +162,9 @@
 *                                           |             |    Trans    |             |  |             |    Trans    |             |
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
-                settings_layer {
-                        bindings = <
+      settings_layer {
+         label = "SETTINGS";
+         bindings = <
    &bt BT_SEL 0  &bt BT_SEL 3  &none         &none         &none         &to WINDOWS      &none         &none         &none         &none         &none         &trans
    &bt BT_SEL 1  &bt BT_SEL 4  &none         &none         &none         &to MAC          &none         &none         &none         &none         &none         &none
    &bt BT_SEL 2  &bt BT_CLR    &none         &none         &none         &tog GAME        &none         &none         &none         &none         &none         &none     
@@ -177,8 +183,9 @@
 *                                           |     Esc     |     Alt     |    Space    |  |             |             |  TG(GAME)   |
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
-                game_layer {
-                        bindings = <
+      game_layer {
+         label = "GAME";
+         bindings = <
    &kp T         &kp TAB       &kp Q         &kp W          &kp E          &kp R          &kp Y         &kp U         &kp I         &kp O         &kp P         &kp BSPC
    &kp G         &kp LSHFT     &kp A         &kp S          &kp D          &kp F          &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
    &kp B         &kp LCTRL     &kp Z         &kp X          &kp C          &kp V          &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp ENTER
