@@ -91,9 +91,9 @@
 * ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
 * |     Tab     |      !      |      @      |      #      |      $      |      %      |  |      ^      |      &      |      *      |      (      |      )      |     Del     |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
-* |     Esc     |             |  SCRL_LCK   |   Mouse2    |   Mouse1    |  NUM_LOCK   |  |      `      |      -      |      =      |      [      |     ]       |      \      |
+* |     Esc     |             |             |             |             |             |  |      `      |      -      |      =      |      [      |     ]       |      \      |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
-* |    CAPS     |             |             |   Mouse4    |   Mouse5    |             |  |      ~      |      _      |      +      |      {      |      }      |      |      |
+* |    CAPS     |             |             |             |             |             |  |      ~      |      _      |      +      |      {      |      }      |      |      |
 * `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
 *                                           |    Hyper    |    Trans    |    Space    |  |    Bksp     |   Adjust    |             |
 *                                           `-----------------------------------------'  `-----------------------------------------'
@@ -102,8 +102,8 @@
          label = "LOWER";
          bindings = <
    &kp TAB       &kp EXCL      &kp AT        &kp HASH       &kp DOLLAR     &kp PERCENT    &kp CARET     &kp AMPS      &kp STAR      &kp LPAR      &kp RPAR      &kp DEL
-   &kp ESC       &none         &none         &mkp MB2       &mkp MB1       &none          &kp GRAVE     &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT      &kp BSLH
-   &kp CAPS      &none         &none         &mkp MB4       &mkp MB5       &none          &kp TILDE     &kp UNDER     &kp PLUS      &kp LBRC      &kp RBRC      &kp PIPE
+   &kp ESC       &none         &none         &none          &none          &none          &kp GRAVE     &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT      &kp BSLH
+   &kp CAPS      &none         &none         &none          &none          &none          &kp TILDE     &kp UNDER     &kp PLUS      &kp LBRC      &kp RBRC      &kp PIPE
                                              &none          &trans         &kp SPACE      &kp BSPC      &mo ADJUST         &none
                         >;
                 };
