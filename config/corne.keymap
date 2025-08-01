@@ -196,8 +196,8 @@
       settings_layer {
          label = "SETTINGS";
          bindings = <
-   &bt BT_SEL 0  &bt BT_SEL 3  &none         &none         &none         &to WINDOWS      &none         &none         &none         &none         &none         &trans
-   &bt BT_SEL 1  &bt BT_SEL 4  &none         &none         &none         &to MAC          &none         &none         &none         &none         &none         &none
+   &bt BT_SEL 0  &bt BT_SEL 3  &none         &none         &to CM_WIN    &to WINDOWS      &none         &none         &none         &none         &none         &trans
+   &bt BT_SEL 1  &bt BT_SEL 4  &none         &none         &to CM_MAC    &to MAC          &none         &none         &none         &none         &none         &none
    &bt BT_SEL 2  &bt BT_CLR    &none         &none         &none         &tog GAME        &none         &none         &none         &none         &none         &none     
                                              &none         &trans        &none            &none         &trans        &none
          >;
@@ -236,7 +236,7 @@
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
       colemakdh_win_layer {
-         label = "CM WINDOWS";
+         label = "CM WIN";
          bindings = <
    &kp TAB       &kp Q         &kp W         &kp F          &kp P          &kp B          &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp DEL
    &kp ESC       &hm LGUI A    &hm LALT R    &hm LCTRL S    &hm LSHFT T    &kp G          &kp M         &hm RSHFT N   &hm RCTRL E   &hm RALT I    &hm RGUI O    &kp SQT
