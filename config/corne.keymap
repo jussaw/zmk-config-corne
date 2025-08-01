@@ -19,9 +19,10 @@
 #define MAC 1
 #define LOWER 2
 #define UPPER 3
-#define ADJUST 4
-#define SETTINGS 5
-#define GAME 6
+#define UPPER_MAC 4
+#define ADJUST 5
+#define SETTINGS 6
+#define GAME 7
 
 // Custom Behaviors
 / {
@@ -89,7 +90,7 @@
    &kp TAB       &kp Q         &kp W         &kp E          &kp R          &kp T          &kp Y         &kp U         &kp I         &kp O         &kp P         &kp DEL
    &kp ESC       &hm LCTRL A   &hm LALT S    &hm LGUI D     &hm LSHFT F    &kp G          &kp H         &hm RSHFT J   &hm RGUI K    &hm RALT L    &hm RCTRL SEMI &kp SQT
    &kp CAPS      &kp Z         &kp X         &kp C          &kp V          &kp B          &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp ENTER
-                                             &hyper         &mo LOWER      &kp SPACE      &kp BSPC      &mo UPPER     &none
+                                             &hyper         &mo LOWER      &kp SPACE      &kp BSPC      &mo UPPER_MAC &none
          >;
       };
 
@@ -118,7 +119,7 @@
 * ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
 * |     Tab     |      1      |      2      |      3      |      4      |      5      |  |      6      |      7      |      8      |      9      |      0      |     Del     |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
-* |     F11     |     F1      |     F2      |     F3      |     F4      |     F5      |  |     Ins     |    Left     |    Down     |     Up      |    Right    |      \      |
+* |     F11     |   F1 LGUI   |   F2 LALT   |   F3 LCTL   |   F4 LSFT   |     F5      |  |     Ins     |    Left     |    Down     |     Up      |    Right    |      \      |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
 * |     F12     |     F6      |     F7      |     F8      |     F9      |     F10     |  |   PrntScrn  |    Home     |   Pg Down   |    Pg Up    |     End     |    Enter    |
 * `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
@@ -130,7 +131,29 @@
          label = "UPPER";
          bindings = <
    &kp TAB       &kp N1        &kp N2        &kp N3         &kp N4         &kp N5         &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp DEL
-   &kp F11       &kp F1        &kp F2        &kp F3         &kp F4         &kp F5         &kp INS       &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSLH
+   &kp F11       &hm LGUI F1   &hm LALT F2   &hm LCTRL F3   &hm LSHFT F4   &kp F5         &kp INS       &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSLH
+   &kp F12       &kp F6        &kp F7        &kp F8         &kp F9         &kp F10        &kp PSCRN     &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp ENTER
+                                             &hyper         &mo ADJUST     &kp SPACE      &kp BSPC      &trans        &none
+         >;
+      };
+
+/* Upper Mac
+* ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
+* |     Tab     |      1      |      2      |      3      |      4      |      5      |  |      6      |      7      |      8      |      9      |      0      |     Del     |
+* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
+* |     F11     |   F1 LCTL   |   F2 LALT   |   F3 LGUI   |   F4 LSFT   |     F5      |  |     Ins     |    Left     |    Down     |     Up      |    Right    |      \      |
+* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
+* |     F12     |     F6      |     F7      |     F8      |     F9      |     F10     |  |   PrntScrn  |    Home     |   Pg Down   |    Pg Up    |     End     |    Enter    |
+* `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
+*                                           |    Hyper    |   Adjust    |    Space    |  |    Bksp     |    Trans    |             |
+*                                           `-----------------------------------------'  `-----------------------------------------'
+*/
+
+      upper_mac_layer {
+         label = "UPPER";
+         bindings = <
+   &kp TAB       &kp N1        &kp N2        &kp N3         &kp N4         &kp N5         &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp DEL
+   &kp F11       &hm LCTRL F1  &hm LALT F2   &hm LGUI F3    &hm LSHFT F4   &kp F5         &kp INS       &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSLH
    &kp F12       &kp F6        &kp F7        &kp F8         &kp F9         &kp F10        &kp PSCRN     &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp ENTER
                                              &hyper         &mo ADJUST     &kp SPACE      &kp BSPC      &trans        &none
          >;
