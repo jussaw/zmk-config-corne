@@ -17,14 +17,12 @@
 // Layers
 #define WINDOWS 0
 #define MAC 1
-#define CM_WIN 2
-#define CM_MAC 3
-#define LOWER 4
-#define UPPER 5
-#define UPPER_MAC 6
-#define ADJUST 7
-#define SETTINGS 8
-#define GAME 9
+#define LOWER 2
+#define UPPER 3
+#define UPPER_MAC 4
+#define ADJUST 5
+#define SETTINGS 6
+#define GAME 7
 
 // Custom Behaviors
 / {
@@ -56,48 +54,6 @@
 
 /* Windows
 * ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
-* |     Tab     |      Q      |      W      |      E      |      R      |      T      |  |      Y      |      U      |      I      |      O      |      P      |     Del     |
-* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
-* |     Esc     |   A LGUI    |   S LALT    |   D LCTL    |   F LSFT    |      G      |  |      H      |   J RSFT    |   K RCTL    |   , RALT    |   ; RGUI    |     ""      |
-* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
-* |    CAPS     |      Z      |     X       |      C      |      V      |      B      |  |      N      |      M      |      ,      |      .      |      /      |    Enter    |
-* `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
-*                                           |    Hyper    |    Lower    |    Space    |  |    Bksp     |    Upper    |             |
-*                                           `-----------------------------------------'  `-----------------------------------------'
-*/
-      windows_default_layer {
-         label = "DEFAULT";
-         bindings = <
-   &kp TAB       &kp Q         &kp W         &kp E          &kp R          &kp T          &kp Y         &kp U         &kp I         &kp O         &kp P         &kp DEL
-   &kp ESC       &hm LGUI A    &hm LALT S    &hm LCTRL D    &hm LSHFT F    &kp G          &kp H         &hm RSHFT J   &hm RCTRL K   &hm RALT L    &hm RGUI SEMI &kp SQT
-   &kp CAPS      &kp Z         &kp X         &kp C          &kp V          &kp B          &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp ENTER
-                                             &hyper         &mo LOWER      &kp SPACE      &kp BSPC      &mo UPPER     &none
-         >;
-      };
-
-/* Mac
-* ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
-* |     Tab     |      Q      |      W      |      E      |      R      |      T      |  |      Y      |      U      |      I      |      O      |      P      |     Del     |
-* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
-* |     Esc     |   A LCTL    |   S LALT    |   D LGUI    |   F LSFT    |      G      |  |      H      |   J RSFT    |   K RGUI    |   , RALT    |   ; RCTL    |     ""      |
-* |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
-* |    CAPS     |      Z      |     X       |      C      |      V      |      B      |  |      N      |      M      |      ,      |      .      |      /      |    Enter    |
-* `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
-*                                           |    Hyper    |    Lower    |    Space    |  |    Bksp     |    Upper    |             |
-*                                           `-----------------------------------------'  `-----------------------------------------'
-*/
-      mac_layer {
-         label = "MAC";
-         bindings = <
-   &kp TAB       &kp Q         &kp W         &kp E          &kp R          &kp T          &kp Y         &kp U         &kp I         &kp O         &kp P         &kp DEL
-   &kp ESC       &hm LCTRL A   &hm LALT S    &hm LGUI D     &hm LSHFT F    &kp G          &kp H         &hm RSHFT J   &hm RGUI K    &hm RALT L    &hm RCTRL SEMI &kp SQT
-   &kp CAPS      &kp Z         &kp X         &kp C          &kp V          &kp B          &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp ENTER
-                                             &hyper         &mo LOWER      &kp SPACE      &kp BSPC      &mo UPPER_MAC &none
-         >;
-      };
-
-/* Colemak Mod-DH Windows
-* ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
 * |     Tab     |      Q      |      W      |      F      |      P      |      B      |  |      J      |      L      |      U      |      Y      |      ;      |     Del     |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
 * |     Esc     |   A LGUI    |   R LALT    |   S LCTL    |   T LSFT    |      G      |  |      M      |   N RSFT    |   E RCTL    |   I RALT    |   O RGUI    |     ""      |
@@ -107,8 +63,8 @@
 *                                           |    Hyper    |    Lower    |    Space    |  |    Bksp     |    Upper    |             |
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
-      colemakdh_win_layer {
-         label = "CM WIN";
+      windows_default_layer {
+         label = "DEFAULT";
          bindings = <
    &kp TAB       &kp Q         &kp W         &kp F          &kp P          &kp B          &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp DEL
    &kp ESC       &hm LGUI A    &hm LALT R    &hm LCTRL S    &hm LSHFT T    &kp G          &kp M         &hm RSHFT N   &hm RCTRL E   &hm RALT I    &hm RGUI O    &kp SQT
@@ -117,7 +73,7 @@
          >;
       };
 
-/* Colemak Mod-DH Mac
+/* Mac
 * ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
 * |     Tab     |      Q      |      W      |      F      |      P      |      B      |  |      J      |      L      |      U      |      Y      |      ;      |     Del     |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
@@ -128,8 +84,8 @@
 *                                           |    Hyper    |    Lower    |    Space    |  |    Bksp     |    Upper    |             |
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
-      colemakdh_mac_layer {   
-         label = "CM MAC";
+      mac_layer {
+         label = "MAC";
          bindings = <
    &kp TAB       &kp Q         &kp W         &kp F          &kp P          &kp B          &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp DEL
    &kp ESC       &hm LCTRL A   &hm LALT R    &hm LGUI S     &hm LSHFT T    &kp G          &kp M         &hm RSHFT N   &hm RGUI E    &hm RALT I    &hm RCTRL O   &kp SQT
