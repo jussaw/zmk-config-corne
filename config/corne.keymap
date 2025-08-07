@@ -117,7 +117,7 @@
 
 /* Upper
 * ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
-* |     Tab     |      1      |      2      |      3      |      4      |      5      |  |      6      |      7      |      8      |      9      |      0      |     Del     |
+* |     Tab     |      1      |      2      |      3      |      4      |      5      |  |      6      |      7      |      8      |      9      |      0      |  SETTINGS   |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
 * |     F11     |   F1 LGUI   |   F2 LALT   |   F3 LCTL   |   F4 LSFT   |     F5      |  |     Ins     |    Left     |    Down     |     Up      |    Right    |      \      |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
@@ -130,7 +130,7 @@
       upper_layer {
          label = "UPPER";
          bindings = <
-   &kp TAB       &kp N1        &kp N2        &kp N3         &kp N4         &kp N5         &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp DEL
+   &kp TAB       &kp N1        &kp N2        &kp N3         &kp N4         &kp N5         &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &mo SETTINGS
    &kp F11       &hm LGUI F1   &hm LALT F2   &hm LCTRL F3   &hm LSHFT F4   &kp F5         &kp INS       &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSLH
    &kp F12       &kp F6        &kp F7        &kp F8         &kp F9         &kp F10        &kp PSCRN     &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp ENTER
                                              &hyper         &mo ADJUST     &kp SPACE      &kp BSPC      &trans        &none
@@ -139,7 +139,7 @@
 
 /* Upper Mac
 * ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
-* |     Tab     |      1      |      2      |      3      |      4      |      5      |  |      6      |      7      |      8      |      9      |      0      |     Del     |
+* |     Tab     |      1      |      2      |      3      |      4      |      5      |  |      6      |      7      |      8      |      9      |      0      |  SETTINGS   |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
 * |     F11     |   F1 LCTL   |   F2 LALT   |   F3 LGUI   |   F4 LSFT   |     F5      |  |     Ins     |    Left     |    Down     |     Up      |    Right    |      \      |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
@@ -152,7 +152,7 @@
       upper_mac_layer {
          label = "UPPER";
          bindings = <
-   &kp TAB       &kp N1        &kp N2        &kp N3         &kp N4         &kp N5         &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp DEL
+   &kp TAB       &kp N1        &kp N2        &kp N3         &kp N4         &kp N5         &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &mo SETTINGS
    &kp F11       &hm LCTRL F1  &hm LALT F2   &hm LGUI F3    &hm LSHFT F4   &kp F5         &kp INS       &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSLH
    &kp F12       &kp F6        &kp F7        &kp F8         &kp F9         &kp F10        &kp PSCRN     &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp ENTER
                                              &hyper         &mo ADJUST     &kp SPACE      &kp BSPC      &trans        &none
@@ -188,7 +188,7 @@
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
 * |     BT 2    |   BT CLR    |             |             |             |  TG(GAME)   |  |             |             |             |             |             |             |
 * `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
-*                                           |             |    Trans    |             |  |             |    Trans    |             |
+*                                           |             |             |             |  |             |    Trans    |             |
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
       settings_layer {
@@ -197,7 +197,7 @@
    &bt BT_SEL 0  &bt BT_SEL 3  &none         &none         &to CM_WIN    &to WINDOWS      &none         &none         &none         &none         &none         &trans
    &bt BT_SEL 1  &bt BT_SEL 4  &none         &none         &to CM_MAC    &to MAC          &none         &none         &none         &none         &none         &none
    &bt BT_SEL 2  &bt BT_CLR    &none         &none         &none         &tog GAME        &none         &none         &none         &none         &none         &none     
-                                             &none         &trans        &none            &none         &trans        &none
+                                             &none         &none         &none            &none         &trans        &none
          >;
       };
         
