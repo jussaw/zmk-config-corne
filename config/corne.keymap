@@ -161,7 +161,7 @@
 
 /* Adjust 
 * ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
-* |             |             |             |             |             |             |  |    Play     |    Prev     |    Next     |             |             |  SETTINGS   |
+* |             |             |             |             |             |             |  |    Play     |    Prev     |    Next     |             |             |             |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
 * |             |             |             |   Mouse2    |   Mouse1    |             |  |    Vol+     |   Ms Left   |   Ms Down   |    Ms Up    |  Ms Right   |             |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
@@ -173,7 +173,7 @@
       adjust_layer {
          label = "ADJUST";
          bindings = <
-   &none         &none         &none         &none          &none          &none          &kp C_PP      &kp C_PREV    &kp C_NEXT    &none         &none         &mo SETTINGS
+   &none         &none         &none         &none          &none          &none          &kp C_PP      &kp C_PREV    &kp C_NEXT    &none         &none         &none
    &none         &none         &none         &mkp MB2       &mkp MB1       &none          &kp C_VOL_UP  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &none
    &none         &none         &none         &mkp MB4       &mkp MB5       &none          &kp C_VOL_DN  &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &none
                                              &hyper         &trans         &none          &none         &trans        &none
@@ -181,6 +181,11 @@
       };
 
 /* Settings 
+* BT 0 = Windows Desktop
+* BT 1 = Personal MBA
+* BT 2 = Work MBP
+* BT 3 = 
+* BT 4 = 
 * ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
 * |     BT 0    |     BT 3    |             |             |             |   TO(WIN)   |  |             |             |             |             |             |    Trans    |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
