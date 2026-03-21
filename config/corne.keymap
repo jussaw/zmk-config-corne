@@ -38,15 +38,13 @@
         };
         
         hyper: hyper_key {
-            compatible = "zmk,behavior-mod-morph";
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LS(LA(LGUI)))>, <&kp LC(LS(LA(LGUI)))>;
-            mods = <(MOD_LGUI|MOD_LALT|MOD_LCTL|MOD_LSFT)>;
+            bindings = <&kp LC(LS(LA(LGUI)))>;
         };
     };
 };
 
-// TODO: determine whether I will use scroll and num lock
 // TODO: Add Simultaneous Opposing Cardinal Directions functionality on game layer
 / {
    keymap {
@@ -64,7 +62,7 @@
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
       windows_default_layer {
-         label = "DEFAULT";
+         display-name = "DEFAULT";
          bindings = <
    &kp TAB       &kp Q         &kp W         &kp F          &kp P          &kp B          &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp DEL
    &kp ESC       &hm LGUI A    &hm LALT R    &hm LCTRL S    &hm LSHFT T    &kp G          &kp M         &hm RSHFT N   &hm RCTRL E   &hm RALT I    &hm RGUI O    &kp SQT
@@ -85,7 +83,7 @@
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
       mac_layer {
-         label = "MAC";
+         display-name = "MAC";
          bindings = <
    &kp TAB       &kp Q         &kp W         &kp F          &kp P          &kp B          &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp DEL
    &kp ESC       &hm LCTRL A   &hm LALT R    &hm LGUI S     &hm LSHFT T    &kp G          &kp M         &hm RSHFT N   &hm RGUI E    &hm RALT I    &hm RCTRL O   &kp SQT
@@ -106,7 +104,7 @@
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
       lower_layer {
-         label = "LOWER";
+         display-name = "LOWER";
          bindings = <
    &kp TAB       &kp EXCL      &kp AT        &kp HASH       &kp DOLLAR     &kp PERCENT    &kp CARET     &kp AMPS      &kp STAR      &kp LPAR      &kp RPAR      &kp DEL
    &kp ESC       &trans        &trans        &trans         &trans         &trans         &kp GRAVE     &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT      &kp BSLH
@@ -128,7 +126,7 @@
 */
 
       upper_layer {
-         label = "UPPER";
+         display-name = "UPPER";
          bindings = <
    &kp TAB       &kp N1        &kp N2        &kp N3         &kp N4         &kp N5         &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &mo SETTINGS
    &kp F11       &hm LGUI F1   &hm LALT F2   &hm LCTRL F3   &hm LSHFT F4   &kp F5         &kp INS       &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSLH
@@ -150,7 +148,7 @@
 */
 
       upper_mac_layer {
-         label = "UPPER MAC";
+         display-name = "UPPER MAC";
          bindings = <
    &kp TAB       &kp N1        &kp N2        &kp N3         &kp N4         &kp N5         &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &mo SETTINGS
    &kp F11       &hm LCTRL F1  &hm LALT F2   &hm LGUI F3    &hm LSHFT F4   &kp F5         &kp INS       &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSLH
@@ -171,7 +169,7 @@
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
       adjust_layer {
-         label = "ADJUST";
+         display-name = "ADJUST";
          bindings = <
    &none         &none         &none         &none          &none          &none          &kp C_PP      &kp C_PREV    &kp C_NEXT    &none         &none         &none
    &none         &none         &none         &mkp MB2       &mkp MB1       &none          &kp C_VOL_UP  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &none
@@ -197,7 +195,7 @@
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
       settings_layer {
-         label = "SETTINGS";
+         display-name = "SETTINGS";
          bindings = <
    &bt BT_SEL 0  &bt BT_SEL 3  &none         &none         &none         &to WINDOWS      &none         &none         &none         &none         &none         &trans
    &bt BT_SEL 1  &bt BT_SEL 4  &none         &none         &none         &to MAC          &none         &none         &none         &none         &none         &none
@@ -218,7 +216,7 @@
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
       game_layer {
-         label = "GAME";
+         display-name = "GAME";
          bindings = <
    &kp T         &kp TAB       &kp Q         &kp W          &kp E          &kp R          &kp Y         &kp U         &kp I         &kp O         &kp P         &kp BSPC
    &kp G         &kp LSHFT     &kp A         &kp S          &kp D          &kp F          &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
