@@ -42,10 +42,14 @@
             #binding-cells = <0>;
             bindings = <&kp LC(LS(LA(LGUI)))>;
         };
+
+        socd: socd_behavior {
+            compatible = "zmk,behavior-socd";
+            #binding-cells = <2>;
+        };
     };
 };
 
-// TODO: Add Simultaneous Opposing Cardinal Directions functionality on game layer
 / {
    keymap {
       compatible = "zmk,keymap";
@@ -208,7 +212,7 @@
 * ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
 * |      T      |     Tab     |      Q      |      W      |      E      |      R      |  |      Y      |      U      |      I      |      O      |      P      |    Bksp     |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
-* |      G      |    Shift    |      A      |      S      |      D      |      F      |  |      H      |      J      |      K      |      L      |      ;      |     ""      |
+* |      G      |    Shift    |   SOCD A/D  |      S      |   SOCD D/A  |      F      |  |      H      |      J      |      K      |      L      |      ;      |     ""      |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
 * |      B      |    Ctrl     |      Z      |      X      |      C      |      V      |  |      N      |      M      |      ,      |      .      |      /      |    Enter    |
 * `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
@@ -219,7 +223,7 @@
          display-name = "GAME";
          bindings = <
    &kp T         &kp TAB       &kp Q         &kp W          &kp E          &kp R          &kp Y         &kp U         &kp I         &kp O         &kp P         &kp BSPC
-   &kp G         &kp LSHFT     &kp A         &kp S          &kp D          &kp F          &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
+   &kp G         &kp LSHFT     &socd A D     &kp S          &socd D A      &kp F          &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
    &kp B         &kp LCTRL     &kp Z         &kp X          &kp C          &kp V          &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp ENTER
                                              &kp ESC        &kp LALT       &kp SPACE      &none         &none         &tog GAME
          >;

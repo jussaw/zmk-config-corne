@@ -1,0 +1,14 @@
+description: SOCD last-input-priority behavior
+
+compatible: "zmk,behavior-socd"
+
+include: behaviors.yaml
+
+properties:
+  "#binding-cells":
+    type: int
+    const: 2
+
+cell-names:
+  - "Key"
+  - "Opposing Key"

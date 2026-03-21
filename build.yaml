@@ -22,8 +22,9 @@ include:
   - board: nice_nano//zmk
     shield: corne_left nice_view_adapter nice_view_gem
     snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DZMK_EXTRA_MODULES=$GITHUB_WORKSPACE/modules/zmk-behavior-socd
     artifact-name: corne_left
   - board: nice_nano//zmk
     shield: corne_right nice_view_adapter nice_view_gem
+    cmake-args: -DZMK_EXTRA_MODULES=$GITHUB_WORKSPACE/modules/zmk-behavior-socd
     artifact-name: corne_right
