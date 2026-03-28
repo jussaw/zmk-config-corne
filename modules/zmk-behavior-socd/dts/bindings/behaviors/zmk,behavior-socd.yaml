@@ -9,6 +9,3 @@ properties:
     type: int
     const: 2
 
-cell-names:
-  - "Key"
-  - "Opposing Key"
