@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# ZMK build artifacts
+build/
+zephyr/
+.west/
+*.uf2
+
+# Python
+__pycache__/
+*.pyc
