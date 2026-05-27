@@ -29,7 +29,7 @@ The left half (`corne_left`) is built with ZMK Studio support (`studio-rpc-usb-u
 0  WINDOWS   — Colemak-DH, home row mods (LGUI/LALT/LCTL/LSFT on A R S T)
 1  LOWER     — Symbols (!, @, #…) and brackets; LOWER+UPPER → ADJUST
 2  UPPER     — Numbers, F-keys, navigation; UPPER+LOWER → ADJUST
-3  ADJUST    — Media keys, mouse movement, and scroll (reached from LOWER+UPPER)
+3  ADJUST    — Media keys, mouse movement, and scroll (conditional layer: LOWER+UPPER)
 4  SETTINGS  — Bluetooth profile selection (BT0–BT4), game toggle
 5  GAME      — QWERTY, no home row mods, modifier keys on bottom row
 ```
@@ -39,4 +39,4 @@ Bluetooth profiles are assigned: BT0 = Windows desktop, BT1 = Personal MBA, BT2 
 ## Custom Behaviors
 
 - **`hm` (home_row_mod)**: `tap-preferred` hold-tap, 200 ms tapping term, `require-prior-idle-ms = 125`. Used on home row for modifier access.
-- **`hyper`**: mod-morph that sends `LC(LS(LA(LGUI)))` — mapped to the left thumb key on every layer.
+- **`HYPER`** (`#define`): expands to `LC(LS(LA(LGUI)))`, used as `&kp HYPER` on the left thumb key of every layer.

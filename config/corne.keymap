@@ -23,6 +23,9 @@
 #define SETTINGS 4
 #define GAME 5
 
+// Hyper = Ctrl+Shift+Alt+GUI
+#define HYPER LC(LS(LA(LGUI)))
+
 // Custom Behaviors
 / {
     behaviors {      
@@ -35,12 +38,15 @@
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
         };
-        
-        hyper: hyper_key {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LS(LA(LGUI)))>, <&kp LC(LS(LA(LGUI)))>;
-            mods = <(MOD_LGUI|MOD_LALT|MOD_LCTL|MOD_LSFT)>;
+    };
+};
+
+/ {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        adjust_tri_layer {
+            if-layers = <LOWER UPPER>;
+            then-layer = <ADJUST>;
         };
     };
 };
@@ -66,7 +72,7 @@
    &kp TAB       &kp Q         &kp W         &kp F          &kp P          &kp B          &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp DEL
    &kp ESC       &hm LGUI A    &hm LALT R    &hm LCTRL S    &hm LSHFT T    &kp G          &kp M         &hm RSHFT N   &hm RCTRL E   &hm RALT I    &hm RGUI O    &kp SQT
    &kp CAPS      &kp Z         &kp X         &kp C          &kp D          &kp V          &kp K         &kp H         &kp COMMA     &kp DOT       &kp FSLH      &kp ENTER
-                                             &hyper         &mo LOWER      &kp SPACE      &kp BSPC      &mo UPPER     &none
+                                             &kp HYPER      &mo LOWER      &kp SPACE      &kp BSPC      &mo UPPER     &none
          >;
       };
 
@@ -79,7 +85,7 @@
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
 * |    CAPS     |             |             |             |             |             |  |      ~      |      _      |      +      |      {      |      }      |      |      |
 * `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
-*                                           |    Hyper    |    Trans    |    Space    |  |    Bksp     |   Adjust    |             |
+*                                           |    Hyper    |    Trans    |    Space    |  |    Bksp     |    Upper    |             |
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
       lower_layer {
@@ -88,7 +94,7 @@
    &kp TAB       &kp EXCL      &kp AT        &kp HASH       &kp DOLLAR     &kp PERCENT    &kp CARET     &kp AMPS      &kp STAR      &kp LPAR      &kp RPAR      &kp DEL
    &kp ESC       &trans        &trans        &trans         &trans         &trans         &kp GRAVE     &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT      &kp BSLH
    &kp CAPS      &trans        &trans        &trans         &trans         &trans         &kp TILDE     &kp UNDER     &kp PLUS      &kp LBRC      &kp RBRC      &kp PIPE
-                                             &hyper         &trans         &kp SPACE      &kp BSPC      &mo ADJUST         &none
+                                             &kp HYPER      &trans         &kp SPACE      &kp BSPC      &mo UPPER     &none
          >;
       };
 
@@ -100,7 +106,7 @@
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
 * |     F12     |     F6      |     F7      |     F8      |     F9      |     F10     |  |   PrntScrn  |    Home     |   Pg Down   |    Pg Up    |     End     |    Enter    |
 * `-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------'
-*                                           |    Hyper    |   Adjust    |    Space    |  |    Bksp     |    Trans    |             |
+*                                           |    Hyper    |    Lower    |    Space    |  |    Bksp     |    Trans    |             |
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
 
@@ -110,7 +116,7 @@
    &kp TAB       &kp N1        &kp N2        &kp N3         &kp N4         &kp N5         &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &mo SETTINGS
    &kp F11       &hm LGUI F1   &hm LALT F2   &hm LCTRL F3   &hm LSHFT F4   &kp F5         &kp INS       &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSLH
    &kp F12       &kp F6        &kp F7        &kp F8         &kp F9         &kp F10        &kp PSCRN     &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp ENTER
-                                             &hyper         &mo ADJUST     &kp SPACE      &kp BSPC      &trans        &none
+                                             &kp HYPER      &mo LOWER      &kp SPACE      &kp BSPC      &trans        &none
          >;
       };
 
@@ -132,7 +138,7 @@
    &none         &none         &none         &none          &none          &none          &kp C_PP      &kp C_PREV    &kp C_NEXT    &none         &none         &none
    &none         &none         &none         &mkp MB2       &mkp MB1       &none          &kp C_VOL_UP  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &none
    &none         &none         &none         &mkp MB4       &mkp MB5       &none          &kp C_VOL_DN  &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &none
-                                             &hyper         &trans         &none          &none         &trans        &none
+                                             &kp HYPER      &trans         &none          &none         &trans        &none
          >;
       };
 
