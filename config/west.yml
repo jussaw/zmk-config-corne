@@ -7,6 +7,9 @@ manifest:
     # m165437 is a custom remote for the nice-view-gem project
     - name: m165437
       url-base: https://github.com/M165437
+    # nguyendown is a custom remote for the zmk-behavior-socd module
+    - name: nguyendown
+      url-base: https://github.com/nguyendown
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
@@ -15,6 +18,9 @@ manifest:
       import: app/west.yml
     - name: nice-view-gem
       remote: m165437
+      revision: main
+    - name: zmk-behavior-socd
+      remote: nguyendown
       revision: main
   self:
     path: config

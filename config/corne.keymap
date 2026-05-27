@@ -5,6 +5,7 @@
  */
 
 #include <behaviors.dtsi>
+#include <behaviors/socd.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/mouse.h>
@@ -44,7 +45,6 @@
     };
 };
 
-// TODO: Add Simultaneous Opposing Cardinal Directions functionality on game layer
 / {
    keymap {
       compatible = "zmk,keymap";
@@ -177,7 +177,7 @@
          label = "GAME";
          bindings = <
    &kp T         &kp TAB       &kp Q         &kp W          &kp E          &kp R          &kp Y         &kp U         &kp I         &kp O         &kp P         &kp BSPC
-   &kp G         &kp LSHFT     &kp A         &kp S          &kp D          &kp F          &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
+   &kp G         &kp LSHFT     &socd A       &kp S          &socd D        &kp F          &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
    &kp B         &kp LCTRL     &kp Z         &kp X          &kp C          &kp V          &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp ENTER
                                              &kp ESC        &kp LALT       &kp SPACE      &none         &none         &tog GAME
          >;
