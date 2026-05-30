@@ -16,7 +16,7 @@
 #include <dt-bindings/zmk/pointing.h>
 
 // Layers
-#define WINDOWS 0
+#define BASE 0
 #define LOWER 1
 #define UPPER 2
 #define ADJUST 3
@@ -55,7 +55,7 @@
    keymap {
       compatible = "zmk,keymap";
 
-/* Windows
+/* Base
 * ,-----------------------------------------------------------------------------------.  ,-----------------------------------------------------------------------------------.
 * |     Tab     |      Q      |      W      |      F      |      P      |      B      |  |      J      |      L      |      U      |      Y      |      ;      |     Del     |
 * |-------------+-------------+-------------+-------------+-------------+-------------|  |-------------+-------------+-------------+-------------+-------------+-------------|
@@ -66,8 +66,8 @@
 *                                           |    Hyper    |    Lower    |    Space    |  |    Bksp     |    Upper    |             |
 *                                           `-----------------------------------------'  `-----------------------------------------'
 */
-      windows_default_layer {
-         label = "DEFAULT";
+      base_layer {
+         label = "BASE";
          bindings = <
    &kp TAB       &kp Q         &kp W         &kp F          &kp P          &kp B          &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp DEL
    &kp ESC       &hm LGUI A    &hm LALT R    &hm LCTRL S    &hm LSHFT T    &kp G          &kp M         &hm RSHFT N   &hm RCTRL E   &hm RALT I    &hm RGUI O    &kp SQT

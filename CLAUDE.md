@@ -26,7 +26,7 @@ The left half (`corne_left`) is built with ZMK Studio support (`studio-rpc-usb-u
 ## Layers
 
 ```
-0  WINDOWS   — Colemak-DH, home row mods (LGUI/LALT/LCTL/LSFT on A R S T)
+0  BASE      — Colemak-DH, home row mods (LGUI/LALT/LCTL/LSFT on A R S T)
 1  LOWER     — Symbols (!, @, #…) and brackets; LOWER+UPPER → ADJUST
 2  UPPER     — Numbers, F-keys, navigation; UPPER+LOWER → ADJUST
 3  ADJUST    — Media keys, mouse movement, and scroll (conditional layer: LOWER+UPPER)
