@@ -40,3 +40,26 @@ Bluetooth profiles are assigned: BT0 = Windows desktop, BT1 = Personal MBA, BT2 
 
 - **`hm` (home_row_mod)**: `tap-preferred` hold-tap, 200 ms tapping term, `require-prior-idle-ms = 125`. Used on home row for modifier access.
 - **`HYPER`** (`#define`): expands to `LC(LS(LA(LGUI)))`, used as `&kp HYPER` on the left thumb key of every layer.
+
+## Git Commits
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/): `type(scope): summary`. Keep the summary in lowercase, imperative mood ("add", not "added"/"adds"), with no trailing period and ≤ 72 characters. Add a body (blank line, then prose) only when the *why* isn't obvious from the summary.
+
+| Type | Use for |
+|---|---|
+| `feat` | New keys, layers, or behaviors |
+| `fix` | Correcting broken keymap or config behavior |
+| `refactor` | Restructuring without changing behavior (e.g. renaming a layer) |
+| `docs` | README, CLAUDE.md, or in-file comments |
+| `build` | `build.yaml`, `config/west.yml`, or firmware-target changes |
+| `chore` | Tooling, metadata, or housekeeping |
+
+Common scopes: `keymap`, `conf`, `build`, `west`. Scope is optional but preferred when a change is confined to one area.
+
+Examples:
+- `feat(keymap): add BT_CLR_ALL key to SETTINGS layer`
+- `refactor(keymap): rename WINDOWS layer to BASE`
+- `docs: document layers and build flow in README`
+- `build: add settings_reset firmware target`
+
+Keep each commit focused on a single logical change; don't mix keymap edits with unrelated doc or build changes.
