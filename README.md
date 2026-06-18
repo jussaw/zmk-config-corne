@@ -11,7 +11,7 @@ The base layer is **Colemak-DH** with home-row mods, plus symbol, number/navigat
 | Controllers | [nice!nano](https://nicekeyboards.com/nice-nano/) (board ID `nice_nano//zmk`) |
 | Shields | `corne_left` / `corne_right` |
 | Displays | [nice-view-gem](https://github.com/M165437/nice-view-gem) on `nice_view_adapter` |
-| Keyboard name | `j-corne-nano` |
+| Keyboard name | `jussaw-corne` |
 
 ## Layers
 
